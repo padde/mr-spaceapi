@@ -2,6 +2,8 @@ require 'lib/door'
 require 'json'
 
 class App < Sinatra::Base
+  register Sinatra::CrossOrigin
+
   configure do
     set :redis_json_cache_key, 'cache/api/v0_12/status.json'
     redis_uri = URI.parse(ENV["REDISTOGO_URL"] || 'redis://localhost:6379')
@@ -15,6 +17,7 @@ class App < Sinatra::Base
 
   get '/api/v0_12/status.json' do
     content_type :json
+    cross_origin
     res = REDIS.get(settings.redis_json_cache_key)
     res || flush_cache
   end

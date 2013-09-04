@@ -40,9 +40,9 @@ Now go and add a task running every 10 minutes with the command
 For the last step you need to add Twitter API credentials to the
 Heroku configuration (not in repository)
 
-  heroku config:set --app mr-spaceapi TWITTER_CONSUMER_KEY='...'
-  heroku config:set --app mr-spaceapi TWITTER_CONSUMER_SECRET='...'
-  heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN='...'
-  heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN_SECRET='...'
+    heroku config:set --app mr-spaceapi TWITTER_CONSUMER_KEY='...'
+    heroku config:set --app mr-spaceapi TWITTER_CONSUMER_SECRET='...'
+    heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN='...'
+    heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN_SECRET='...'
 
 Done.

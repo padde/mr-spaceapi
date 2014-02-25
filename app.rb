@@ -14,6 +14,7 @@ class App < Sinatra::Base
 
   before do
     cache_control :no_cache
+    response.headers['Access-Control-Allow-Origin'] = '*'
   end
 
   get '/' do

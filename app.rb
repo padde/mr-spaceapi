@@ -15,6 +15,10 @@ class App < Sinatra::Base
     send_file 'views/index.md'
   end
 
+  get '/status.json' do
+    redirect '/api/v0_12/status.json'
+  end
+
   get '/api/v0_12/status.json' do
     content_type :json
     cross_origin

@@ -10,6 +10,11 @@ class App < Sinatra::Base
     REDIS = Redis.new(host: redis_uri.host, port: redis_uri.port, password: redis_uri.password)
   end
 
+  before do
+    cross_origin
+    cache_control :no_cache
+  end
+
   get '/' do
     content_type :text
     send_file 'views/index.md'
@@ -17,7 +22,6 @@ class App < Sinatra::Base
 
   get '/status.json' do
     content_type :json
-    cross_origin
     res = REDIS.get(settings.redis_json_cache_key)
     res || flush_cache
   end

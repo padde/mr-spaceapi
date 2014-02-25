@@ -5,13 +5,14 @@ class App < Sinatra::Base
   register Sinatra::CrossOrigin
 
   configure do
+    enable :cross_origin
+
     set :redis_json_cache_key, 'cache/status.json'
     redis_uri = URI.parse(ENV["REDISTOGO_URL"] || 'redis://localhost:6379')
     REDIS = Redis.new(host: redis_uri.host, port: redis_uri.port, password: redis_uri.password)
   end
 
   before do
-    cross_origin
     cache_control :no_cache
   end
 

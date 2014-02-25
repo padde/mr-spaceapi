@@ -2,12 +2,6 @@ Welcome to the Maschinenraum SpaceAPI. You probably want to:
 
     GET /status.json
 
-If you want to reference a specific version of the API, you can specify
-this in the format /api/v<VERSION_NUMBER>/status.json. Currently, the
-only supported version is 0.12:
-
-    GET /api/v0_12/status.json
-
 Example response (formatted):
 
     {

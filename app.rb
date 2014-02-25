@@ -5,7 +5,7 @@ class App < Sinatra::Base
   register Sinatra::CrossOrigin
 
   configure do
-    set :redis_json_cache_key, 'cache/api/v0_12/status.json'
+    set :redis_json_cache_key, 'cache/status.json'
     redis_uri = URI.parse(ENV["REDISTOGO_URL"] || 'redis://localhost:6379')
     REDIS = Redis.new(host: redis_uri.host, port: redis_uri.port, password: redis_uri.password)
   end
@@ -16,17 +16,13 @@ class App < Sinatra::Base
   end
 
   get '/status.json' do
-    redirect '/api/v0_12/status.json'
-  end
-
-  get '/api/v0_12/status.json' do
     content_type :json
     cross_origin
     res = REDIS.get(settings.redis_json_cache_key)
     res || flush_cache
   end
 
-  get '/api/v0_12/update_status' do
+  get '/refresh' do
     content_type :text
     begin
       flush_cache

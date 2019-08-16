@@ -42,7 +42,7 @@ Heroku configuration (not in repository)
 
     heroku config:set --app mr-spaceapi TWITTER_CONSUMER_KEY='...'
     heroku config:set --app mr-spaceapi TWITTER_CONSUMER_SECRET='...'
-    heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN='...'
-    heroku config:set --app mr-spaceapi TWITTER_OAUTH_TOKEN_SECRET='...'
+    heroku config:set --app mr-spaceapi TWITTER_ACCESS_TOKEN='...'
+    heroku config:set --app mr-spaceapi TWITTER_ACCESS_SECRET='...'
 
 Done.

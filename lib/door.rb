@@ -45,7 +45,7 @@ class Door
   attr_accessor :status
 
   def initialize
-    @latest_tweet = Twitter.user_timeline('mr_door_status', count: 1).first
+    @latest_tweet = TWITTER_CLIENT.user_timeline('mr_door_status', count: 1).first
     @status = DEFAULT_STATUS
     update_status
   end
